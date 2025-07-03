@@ -86,6 +86,74 @@ namespace C__Assignment05
             Program myProgram = new Program();
 
             #region 1.Explain the difference between passing (Value type parameters) by value and by reference then write a suitable c# example.
+            //Value Type Parameters: Pass by Value vs Pass by Reference
+            //Includes: int, double, char, bool
+            /*
+             When we pass value type by value only a copy is passed and 
+             the original value in the stack is not affected by any changes made by the method
+             */
+
+            /*
+             When we pass value type by reference the actual variable is passed.
+             Changes made by the method affect the original.
+             */
+
+            void PassByValue(int x, int y)
+            {
+                x += 5;
+                y += 5;
+            }
+
+            void PassByReference(ref int x, ref int y)
+            {
+                x += 5;
+                y += 5;
+            }
+
+
+            int a = 5, b = 10;
+            Console.WriteLine($"Before: a = {a}, b = {b}");
+            PassByValue(a, b);
+            Console.WriteLine($"After PassByValue: a = {a}, b = {b}");
+            PassByReference(ref a, ref b);
+            Console.WriteLine($"After PassByReference: a = {a}, b = {b}");
+
+
+
+            //Reference Type Parameters: Pass by Value vs Pass by Reference
+            //Includes: arrays, strings, objects, lists, etc.
+
+            /*
+             When we pass reference types by value, the reference (memory address) is copied.
+             This means the method can change the contents of the object, but not reassign it to a new one.
+             The original reference in the caller still points to the same object.
+             */
+
+            /*
+             When we pass reference types by reference using 'ref', the actual reference is passed.
+             This allows the method to change the contents of the object and also reassign it to a completely new object.
+             The caller will see both content and reference changes.
+             */
+
+            void ChangeArrayByValue(int[] arr)
+            {
+                arr[0] = 100;
+                arr = new int[] { 9, 9, 9 };
+            }
+
+            void ChangeArrayByRef(ref int[] arr)
+            {
+                arr = new int[] { 7, 8, 9 };
+            }
+
+
+            int[] numbers = { 1, 2, 3 };
+            Console.WriteLine("Before change: " + string.Join(",", numbers));
+            ChangeArrayByValue(numbers);
+            Console.WriteLine("After ChangeArrayByValue: " + string.Join(",", numbers));
+            ChangeArrayByRef(ref numbers);
+            Console.WriteLine("After ChangeArrayByRef: " + string.Join(",", numbers));
+
 
 
             #endregion
