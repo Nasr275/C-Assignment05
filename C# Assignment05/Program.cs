@@ -118,7 +118,9 @@ namespace C__Assignment05
             PassByReference(ref a, ref b);
             Console.WriteLine($"After PassByReference: a = {a}, b = {b}");
 
+            #endregion
 
+            #region 2.Explain the difference between passing (Reference type parameters) by value and by reference then write a suitable c# example.
 
             //Reference Type Parameters: Pass by Value vs Pass by Reference
             //Includes: arrays, strings, objects, lists, etc.
@@ -153,13 +155,6 @@ namespace C__Assignment05
             Console.WriteLine("After ChangeArrayByValue: " + string.Join(",", numbers));
             ChangeArrayByRef(ref numbers);
             Console.WriteLine("After ChangeArrayByRef: " + string.Join(",", numbers));
-
-
-
-            #endregion
-
-            #region 2.Explain the difference between passing (Reference type parameters) by value and by reference then write a suitable c# example.
-
 
             #endregion
 
